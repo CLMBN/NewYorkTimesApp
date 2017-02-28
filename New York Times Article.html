@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+  
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>NYT Article Search</title>
+<!--   <link rel="stylesheet" type="text/css" href="assets/css/reset.css"> -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.7/slate/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+<!--   <link rel="stylesheet" type="text/css" href="assets/css/style.css"> -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+  <div class="container">
+    <div class="jumbotron">
+        <h1><span class="fa fa-newspaper-o"> </span> New York Times Article Search</h1> 
+        <p></p> 
+    </div>
+  <!-- Search Panel -->
+  <div class="row">
+    <div class="panel panel-primary">
+      <div class="panel-heading"><span class="glyphicon glyphicon-search"></span> Search Parameters</div>
+        <form class="panel-body">
+            <div class="form-group">
+              <label for="search">Search Term</label>
+              <input type="text" class="form-control" id="search">
+            </div>
+            <div class="form-group">
+             <label for="records">Number of Records to Retrieve:</label>
+             <select class="form-control" id="records">
+               <option>1</option>
+               <option>5</option>
+               <option>10</option>
+             </select>
+          </div>
+            <div class="form-group">
+              <label for="startYear">Start Year:</label>
+              <input type="date" class="form-control" id="startYear">
+            </div>
+            <div class="form-group">
+              <label for="endYear">End Year:</label>
+              <input type="date" class="form-control" id="endYear">
+            </div>
+          <button type="submit" class="btn btn-default" id="submit">Submit</button>
+          <button id="reset" type="reset" class="btn btn-default">Clear Results</button>
+        </form>
+    </div>
+  </div>
+<!-- Results Panel -->
+  <div class="row">
+      <div class="panel panel-primary">
+        <div class="panel-heading"><span class="glyphicon glyphicon-list-alt"></span> Top Articles</div>
+        <form class="panel-body" id="resultsPanel">
+        <div class="well">
+          <h3><a class="label label-primary">4</a>  Colson Whitehead on George Saunders’s Novel About Lincoln and Lost Souls</h3>
+          <h5>By COLSON WHITEHEAD</h5>
+          <h5>Section: Books</h5>
+          <h5>2017-02-09T10:00:02+0000</h5>
+          <a href="http://www.nytimes.com/2017/02/09/books/review/lincoln-in-the-bardo-george-saunders.html">http://www.nytimes.com/2017/02/09/books/review/lincoln-in-the-bardo-george-saunders.html</a>
+            
+        </div>
+        <div class = "well">
+          <h3><a class="label label-primary">4</a> 
+          <h5> Test </h3>
+          <h5> Test 2 </h5>
+          <h5> Test 3 </h5>
+        </div>
+
+        
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+</body>
+
+<script type="text/javascript" src = "app.js"></script>
+</html>

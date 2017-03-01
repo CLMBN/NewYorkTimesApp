@@ -1,1 +1,1 @@
-<?php include_once("'New York Times Article.html'"); ?>
+<?php include_once("New York Times Article.html"); ?>

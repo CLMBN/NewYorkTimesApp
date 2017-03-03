@@ -9,17 +9,23 @@ submit.on("click", function(event){
 		var records = $("#records").val();
 		var startYear = $("#startYear").val();
 		var endYear = $("#endYear").val();
+		var startYearClean = startYear.replace('-', '');
+		var endYearClean = endYear.replace('-', '');
+		var startYearClean2 = startYearClean.replace('-', '');
+		var endYearClean2 = endYearClean.replace('-', '');
+
+		console.log(startYearClean2);
+		console.log(endYearClean2);
 
 		var queryURL = "https://api.nytimes.com/svc/search/v2/articlesearch.json";
 		queryURL += '?' + $.param({
 			'api-key': "f2da3b516924484098f9e82b57b12c49",
 			'q': searchKey,
-			'begin_date': 20160210,
-			'end_date': 20170210
+			'begin_date': startYearClean2,
+			'end_date': endYearClean2
 		});
-
-		for (var i = 0; i < records; i++) 
-			getRecords();
+		getRecords();
+		
 
 		function getRecords() {
 			$.ajax({
@@ -28,6 +34,9 @@ submit.on("click", function(event){
 			}).done(function(result) {
 
 				console.log(result);
+
+			for (var i = 0; i < records; i++) {
+				
 				var resultsPanel = $("#resultsPanel");
 				var wellDiv = $("<div>");
 				wellDiv.addClass("well");
@@ -37,7 +46,7 @@ submit.on("click", function(event){
 				//header.text("test2");
 				var anchor = $("<a>");
 				anchor.addClass("label label-primary");
-				anchor.text(1);
+				anchor.text(i+1);
 				console.log(header);
 
 				var author = $("<h5>");
@@ -49,14 +58,14 @@ submit.on("click", function(event){
 				//author.append(header);
 				header.html(anchor);
 				//header.append("&nbsp;" ,"Title: " + result.response.docs[0].web_url);
-				author.append("&nbsp;" ,result.response.docs[0].byline.original);
-				header.append("&nbsp;" ,result.response.docs[0].snippet);
+				author.append("&nbsp;" ,result.response.docs[i].byline.original);
+				header.append("&nbsp;" ,result.response.docs[i].snippet);
 				//author.text("&nbsp;" ,result.response.docs[0].byline.original);
 
 				wellDiv.html(header);
 				wellDiv.append(author);
 				resultsPanel.append(wellDiv);
-
+			}
 
 				// console.log(result);
 				// var resultsPanel = $("#resultsPanel");
